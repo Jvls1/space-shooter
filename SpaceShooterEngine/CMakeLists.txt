@@ -3,6 +3,9 @@ add_library(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Application.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Application.cpp
 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Core.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Core.cpp
+
     ${CMAKE_CURRENT_SOURCE_DIR}/include/EntryPoint.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/EntryPoint.cpp
 )

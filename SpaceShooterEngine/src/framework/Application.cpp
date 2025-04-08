@@ -1,5 +1,5 @@
 #include "framework/Application.hpp"
-#include <iostream>
+#include "framework/Core.hpp" 
 
 namespace ss
 {
