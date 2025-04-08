@@ -24,6 +24,7 @@ namespace ss
             while (accumulatedTime > targetDt) {
                 accumulatedTime -= targetDt;
                 TickInternal(targetDt);
+                RenderInternal();
             }
         }
     }
