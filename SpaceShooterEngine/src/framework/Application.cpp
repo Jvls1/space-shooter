@@ -1,12 +1,14 @@
 #include "framework/Application.hpp"
 #include "framework/Core.hpp" 
+#include "framework/World.hpp"
 
 namespace ss
 {
     Application::Application()
         : mWindow(sf::VideoMode({1024, 1440}), "Window"),
         mTargetFrameRate{60.f},
-        mTickClock{} {
+        mTickClock{},
+        currentWorld{nullptr} {
     }
 
     void Application::Run() {
@@ -31,6 +33,9 @@ namespace ss
 
     void Application::TickInternal(float dt) {
         Tick(dt);
+        if (currentWorld) {
+            currentWorld->TickInternal(dt);
+        }
     }
 
     void Application::Tick(float dt) {

@@ -1,10 +1,14 @@
 add_library(
     ${SPACE_SHOOTER_ENGINE_TARGET_NAME} STATIC
+
     ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Application.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Application.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Core.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Core.cpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/World.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/World.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/include/EntryPoint.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/EntryPoint.cpp

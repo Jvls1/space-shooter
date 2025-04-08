@@ -3,6 +3,7 @@
 
 namespace ss {
    class GameApplication : public Application {
-
+   public:
+      GameApplication();
    };
 }
