@@ -23,13 +23,23 @@ namespace ss
             accumulatedTime += mTickClock.restart().asSeconds();
             while (accumulatedTime > targetDt) {
                 accumulatedTime -= targetDt;
-                Tick(targetDt);
+                TickInternal(targetDt);
             }
         }
     }
 
+    void Application::TickInternal(float dt) {
+        Tick(dt);
+    }
+
     void Application::Tick(float dt) {
-        std::cout << "tick framerate: " << 1.f / dt << "\n";
+
+    }
+
+    void Application::RenderInternal() {
+        mWindow.clear();
+        Render();
+        mWindow.display();
     }
 
     void Application::Render() {

@@ -7,8 +7,11 @@ namespace ss {
         Application();
         void Run();
     private:
-        void Tick(float dt);
-        void Render();
+        void TickInternal(float dt);
+        void RenderInternal();
+
+        virtual void Render();
+        virtual void Tick(float dt);
 
         sf::RenderWindow mWindow;
         float mTargetFrameRate;
