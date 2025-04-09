@@ -23,10 +23,14 @@ namespace ss {
             actor->BeginPlayInternal();
         }
         mPendingActors.clear();
-        for (shared<Actor> actor : mActors) {
-            actor->Tick(dt);
+        for (auto i = mActors.begin(); i != mActors.end();) {
+            if (i->get()->IsPendingDestroy()) {
+                i = mActors.erase(i);
+            } else {
+                i->get()->Tick(dt);
+                ++i;
+            }
         }
-
         Tick(dt);
     }
 

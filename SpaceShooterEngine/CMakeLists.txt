@@ -10,6 +10,9 @@ add_library(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Core.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Core.cpp
 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Object.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Object.cpp
+
     ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/World.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/World.cpp
 
