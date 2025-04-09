@@ -1,6 +1,9 @@
 add_library(
     ${SPACE_SHOOTER_ENGINE_TARGET_NAME} STATIC
 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Actor.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Actor.cpp
+
     ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Application.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Application.cpp
 

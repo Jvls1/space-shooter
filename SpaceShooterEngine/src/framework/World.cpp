@@ -1,9 +1,12 @@
 #include "framework/World.hpp"
+#include "framework/Actor.hpp"
 
 namespace ss {
     World::World(Application* owningApp) 
         : mOwningApp(owningApp),
-        mBeganPlay(false) {
+        mBeganPlay(false),
+        mActors{},
+        mPendingActors{} {
 
     }
 
@@ -15,6 +18,15 @@ namespace ss {
     }
 
     void World::TickInternal(float dt) {
+        for (shared<Actor> actor : mPendingActors) {
+            mActors.push_back(actor);
+            actor->BeginPlayInternal();
+        }
+        mPendingActors.clear();
+        for (shared<Actor> actor : mActors) {
+            actor->Tick(dt);
+        }
+
         Tick(dt);
     }
 
