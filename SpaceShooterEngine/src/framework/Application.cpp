@@ -1,4 +1,5 @@
 #include "framework/Application.hpp"
+#include "framework/AssetManager.hpp"
 #include "framework/Core.hpp" 
 #include "framework/World.hpp"
 
@@ -8,7 +9,10 @@ namespace ss
         : mWindow(sf::VideoMode({windowWidth, windowHeigth}), title, style),
         mTargetFrameRate{60.f},
         mTickClock{},
-        currentWorld{nullptr} {
+        currentWorld{nullptr},
+        mCleanCycleClock{},
+        mCleanCycleInterval{2.f} {
+
     }
 
     void Application::Run() {
@@ -35,6 +39,11 @@ namespace ss
         Tick(dt);
         if (currentWorld) {
             currentWorld->TickInternal(dt);
+        }
+        
+        if (mCleanCycleClock.getElapsedTime().asSeconds() >= mCleanCycleInterval) {
+            mCleanCycleClock.restart();
+            AssetManager::Get().CleanCycle();
         }
     }
 

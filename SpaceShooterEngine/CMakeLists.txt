@@ -7,8 +7,14 @@ add_library(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Application.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Application.cpp
 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/AssetManager.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/AssetManager.cpp
+
     ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Core.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Core.cpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/MathUtility.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/MathUtility.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Object.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Object.cpp
