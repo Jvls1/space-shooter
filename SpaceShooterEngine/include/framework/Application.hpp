@@ -6,7 +6,7 @@ namespace ss {
     class World;
     class Application {
     public:
-        Application();
+        Application(unsigned int windowWidth, unsigned int windowHeigth, const std::string& title, std::uint32_t style);
         void Run();
 
         template<typename WorldType>
@@ -29,7 +29,6 @@ namespace ss {
     weak<WorldType> Application::LoadWorld() {
         shared<WorldType> newWorld{new WorldType{this}};
         currentWorld = newWorld;
-        currentWorld->BeginPlayInternal();
         return newWorld;
     }
 }

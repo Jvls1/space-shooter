@@ -6,7 +6,8 @@ ss::Application* GetApplication() {
     return new ss::GameApplication{};
 }
 namespace ss {
-    GameApplication::GameApplication() {
+    GameApplication::GameApplication() 
+        : Application{600, 980, "Space Shooter", sf::Style::Titlebar | sf::Style::Close} {
         weak<World> newWorld = LoadWorld<World>();
         newWorld.lock()->SpawnActor<Actor>();
     }

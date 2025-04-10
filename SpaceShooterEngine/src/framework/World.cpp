@@ -27,11 +27,17 @@ namespace ss {
             if (i->get()->IsPendingDestroy()) {
                 i = mActors.erase(i);
             } else {
-                i->get()->Tick(dt);
+                i->get()->TickInternal(dt);
                 ++i;
             }
         }
         Tick(dt);
+    }
+
+    void World::Render(sf::RenderWindow& window) {
+        for (auto actor : mActors) {
+            actor->Render(window);
+        }
     }
 
     World::~World() {

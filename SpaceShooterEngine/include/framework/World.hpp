@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include "framework/Core.hpp"
 
 namespace ss {
@@ -10,6 +11,7 @@ namespace ss {
 
         void BeginPlayInternal();
         void TickInternal(float dt);
+        void Render(sf::RenderWindow& window);
 
         virtual ~World();
         template<typename ActorType>

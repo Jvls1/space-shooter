@@ -4,8 +4,8 @@
 
 namespace ss
 {
-    Application::Application()
-        : mWindow(sf::VideoMode({1024, 1440}), "Window"),
+    Application::Application(unsigned int windowWidth, unsigned int windowHeigth, const std::string& title, std::uint32_t style)
+        : mWindow(sf::VideoMode({windowWidth, windowHeigth}), title, style),
         mTargetFrameRate{60.f},
         mTickClock{},
         currentWorld{nullptr} {
@@ -49,6 +49,8 @@ namespace ss
     }
 
     void Application::Render() {
-
+        if (currentWorld) {
+            currentWorld->Render(mWindow);
+        }
     }
 }
