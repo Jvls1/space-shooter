@@ -36,6 +36,10 @@ namespace ss
         }
     }
 
+    sf::Vector2u Application::GetWindowSize() const {
+        return mWindow.getSize();
+    }
+
     void Application::TickInternal(float dt) {
         Tick(dt);
         if (currentWorld) {

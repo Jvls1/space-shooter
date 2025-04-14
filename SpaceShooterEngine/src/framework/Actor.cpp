@@ -1,6 +1,7 @@
 #include "framework/Actor.hpp"
 #include "framework/AssetManager.hpp"
 #include "framework/MathUtility.hpp"
+#include "framework/World.hpp"
 
 namespace ss {
     Actor::Actor(World* owningWorld, const std::string& texturePath)
@@ -82,6 +83,10 @@ namespace ss {
 
     sf::Vector2f Actor::GetActorRightDirection() const {
         return RotationToVector(GetActorRotation() + 90.f);
+    }
+
+    sf::Vector2u Actor::GetWindowSize() const {
+        return mOwningWorld->GetWindowSize();
     }
 
     void Actor::CenterPivot() {

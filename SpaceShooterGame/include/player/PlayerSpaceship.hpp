@@ -11,6 +11,8 @@ namespace ss {
         float GetSpeed() const { return mSpeed; }
     private:
         void HandleInput();
+        void NormalizeInput();
+        void ClampInputOnEdge();
         void ConsumeInput(float dt);
         sf::Vector2f mMoveInput;
         float mSpeed;

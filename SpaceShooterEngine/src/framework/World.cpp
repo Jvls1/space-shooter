@@ -1,5 +1,6 @@
-#include "framework/World.hpp"
 #include "framework/Actor.hpp"
+#include "framework/Application.hpp"
+#include "framework/World.hpp"
 
 namespace ss {
     World::World(Application* owningApp) 
@@ -42,6 +43,10 @@ namespace ss {
 
     World::~World() {
 
+    }
+
+    sf::Vector2u World::GetWindowSize() const {
+        return mOwningApp->GetWindowSize();
     }
 
     void World::BeginPlay() {
