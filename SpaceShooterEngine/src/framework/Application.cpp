@@ -20,8 +20,9 @@ namespace ss
         float accumulatedTime = 0.f;
         float targetDt = 1.f / mTargetFrameRate;
         while (mWindow.isOpen()) {
-            while (const std::optional event = mWindow.pollEvent()) {
-                if (event->is<sf::Event::Closed>() || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
+            sf::Event event;
+            while (mWindow.pollEvent(event)) {
+                if (event.type == sf::Event::EventType::Closed) {
                     mWindow.close();
                 }
             }

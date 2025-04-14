@@ -6,8 +6,8 @@ namespace ss {
     Actor::Actor(World* owningWorld, const std::string& texturePath)
         : mOwningWorld(owningWorld),
         mHasBeganPlay(false),
-        mSprite{*mTexture},
-        mTexture{} {
+        mTexture{},
+        mSprite{} {
         SetTexture(texturePath);
     }
     Actor::~Actor() {
@@ -57,7 +57,7 @@ namespace ss {
     }
 
     void Actor::SetActorRotation(float newRotation) {
-        mSprite.setRotation(sf::radians(newRotation));
+        mSprite.setRotation(newRotation);
     }
 
     void Actor::AddActorLocationOffset(const sf::Vector2f& offsetAmt) {
@@ -73,7 +73,7 @@ namespace ss {
     }
 
     float Actor::GetActorRotation() const {
-        return mSprite.getRotation().asRadians();
+        return mSprite.getRotation();
     }
 
     sf::Vector2f Actor::GetActorForwardDirection() const {
@@ -86,6 +86,6 @@ namespace ss {
 
     void Actor::CenterPivot() {
         sf::FloatRect bound = mSprite.getGlobalBounds();
-        mSprite.setOrigin({bound.size.x / 2.f, bound.size.y / 2.f});
+        mSprite.setOrigin({bound.width / 2.f, bound.height / 2.f});
     }
 }

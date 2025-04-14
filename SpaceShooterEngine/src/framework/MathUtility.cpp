@@ -9,7 +9,7 @@ namespace ss {
         return sf::Vector2f({std::cos(radians), std::sin(radians)});
     }
 
-    float DegressToRadians(float degrees) {
+    float DegreesToRadians(float degrees) {
         return degrees * (PI / 180.f);
     }
 

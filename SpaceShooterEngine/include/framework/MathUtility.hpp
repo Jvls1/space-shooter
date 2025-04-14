@@ -4,5 +4,5 @@
 namespace ss {
     sf::Vector2f RotationToVector(float rotation);
     float DegreesToRadians(float degrees);
-    float RadiansToDegress(float radians);
+    float RadiansToDegrees(float radians);
 }

@@ -1,4 +1,5 @@
 {
+    "cmake.cmakePath": "/home/joao/Downloads/cmake-3.31.6-linux-x86_64/bin/cmake",
     "files.associations": {
         "any": "cpp",
         "array": "cpp",

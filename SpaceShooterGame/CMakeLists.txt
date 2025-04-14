@@ -1,7 +1,14 @@
 add_executable(
     ${SPACE_SHOOTER_GAME_TARGET_NAME}
+
     ${CMAKE_CURRENT_SOURCE_DIR}/include/gameFramework/GameApplication.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/gameFramework/GameApplication.cpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/player/PlayerSpaceship.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/player/PlayerSpaceship.cpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/spaceship/Spaceship.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/spaceship/Spaceship.cpp
 )
 
 target_include_directories(${SPACE_SHOOTER_GAME_TARGET_NAME} PUBLIC 

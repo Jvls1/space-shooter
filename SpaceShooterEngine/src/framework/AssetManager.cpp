@@ -1,7 +1,10 @@
 #include "framework/AssetManager.hpp"
 
 namespace ss {
-    AssetManager::AssetManager() {
+    unique<AssetManager> AssetManager::assetManager = nullptr;
+
+    AssetManager::AssetManager()
+        :mRootDirectory{} {
     }
 
     AssetManager& AssetManager::Get() {
@@ -18,7 +21,7 @@ namespace ss {
         }
 
         shared<sf::Texture> newTexture{new sf::Texture};
-        if (newTexture->loadFromFile(path)) {
+        if (newTexture->loadFromFile(mRootDirectory + path)) {
             mLoadedTextureMap.insert({path, newTexture});
             return newTexture;
         }
@@ -34,5 +37,9 @@ namespace ss {
                 ++i;
             }
         }
+    }
+
+    void AssetManager::SetAssetRootDirectory(const std::string& directory) {
+        mRootDirectory = directory;
     }
 }
