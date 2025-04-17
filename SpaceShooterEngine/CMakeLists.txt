@@ -30,10 +30,35 @@ target_include_directories(${SPACE_SHOOTER_ENGINE_TARGET_NAME} PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
+include(FetchContent)
+set(SFML_LIB_NAME SFML)
+
+FetchContent_Declare(
+    ${SFML_LIB_NAME}
+    GIT_REPOSITORY https://github.com/SFML/SFML
+    GIT_TAG 2.5.1
+    GIT_SHALLOW FALSE
+)
+
+FetchContent_MakeAvailable(${SFML_LIB_NAME})
+
 target_link_libraries(${SPACE_SHOOTER_ENGINE_TARGET_NAME} PUBLIC sfml-graphics)
 target_link_libraries(${SPACE_SHOOTER_ENGINE_TARGET_NAME} PUBLIC sfml-window)
 target_link_libraries(${SPACE_SHOOTER_ENGINE_TARGET_NAME} PUBLIC sfml-system)
 target_link_libraries(${SPACE_SHOOTER_ENGINE_TARGET_NAME} PUBLIC sfml-audio)
+
+set(BOX2D_LIB_NAME Box2D)
+option(BOX2D_BUILD_UNIT_TESTS "Build the Box2D unit tests" OFF)
+FetchContent_Declare(
+    ${BOX2D_LIB_NAME}
+    GIT_REPOSITORY https://github.com/erincatto/box2d
+    GIT_TAG v2.4.1
+    GIT_SHALLOW FALSE
+)
+
+FetchContent_MakeAvailable(${BOX2D_LIB_NAME})
+
+target_link_libraries(${SPACE_SHOOTER_ENGINE_TARGET_NAME} PUBLIC box2d)
 
 function(CopyLibToTarget LIB_NAME TARGET_NAME) 
    add_custom_command(
@@ -50,3 +75,4 @@ CopyLibToTarget(sfml-graphics ${SPACE_SHOOTER_ENGINE_TARGET_NAME})
 CopyLibToTarget(sfml-window ${SPACE_SHOOTER_ENGINE_TARGET_NAME})
 CopyLibToTarget(sfml-system ${SPACE_SHOOTER_ENGINE_TARGET_NAME})
 CopyLibToTarget(sfml-audio ${SPACE_SHOOTER_ENGINE_TARGET_NAME})
+CopyLibToTarget(box2d ${SPACE_SHOOTER_ENGINE_TARGET_NAME})
