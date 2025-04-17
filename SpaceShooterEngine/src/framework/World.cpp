@@ -25,12 +25,8 @@ namespace ss {
         }
         mPendingActors.clear();
         for (auto i = mActors.begin(); i != mActors.end();) {
-            if (i->get()->IsPendingDestroy()) {
-                i = mActors.erase(i);
-            } else {
-                i->get()->TickInternal(dt);
-                ++i;
-            }
+            i->get()->TickInternal(dt);
+            ++i; 
         }
         Tick(dt);
     }
@@ -55,5 +51,15 @@ namespace ss {
 
     void World::Tick(float dt) {
 
+    }
+
+    void World::CleanCycle() {
+        for (auto i = mActors.begin(); i != mActors.end();) {
+            if (i->get()->IsPendingDestroy()) {
+                i = mActors.erase(i);
+            } else {
+                ++i;
+            }
+        }
     }
 }

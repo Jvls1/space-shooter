@@ -19,6 +19,9 @@ namespace ss {
     void Bullet::Tick(float dt) {
         Actor::Tick(dt);
         Move(dt);
+        if (IsActorOutOfWindowBounds()) {
+            Destroy();
+        }
     }
 
     void Bullet::Move(float dt) {
