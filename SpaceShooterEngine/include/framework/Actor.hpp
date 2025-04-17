@@ -25,8 +25,10 @@ namespace ss {
         float GetActorRotation() const;
         sf::Vector2f GetActorForwardDirection() const;
         sf::Vector2f GetActorRightDirection() const;
+        sf::Vector2f GetActorLeftDirection() const;
 
         sf::Vector2u GetWindowSize() const;
+        World* GetWorld() const { return mOwningWorld; }
     private:
         void CenterPivot();
         World* mOwningWorld;

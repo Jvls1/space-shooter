@@ -15,6 +15,7 @@ namespace ss {
         weak<World> newWorld = LoadWorld<World>();
         testPlayerSpaceship = newWorld.lock()->SpawnActor<PlayerSpaceship>();
         testPlayerSpaceship.lock()->SetActorLocation(sf::Vector2f(300.f, 490.f));
+        //testPlayerSpaceship.lock()->SetActorRotation(-90.f);
     }
 
     void GameApplication::Tick(float dt) {

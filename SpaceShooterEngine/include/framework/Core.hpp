@@ -3,6 +3,7 @@
 #include <memory>
 #include <map>
 #include <unordered_map>
+#include <vector>
 
 namespace ss {
     template<typename T>

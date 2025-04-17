@@ -1,12 +1,14 @@
 #include <SFML/Graphics.hpp>
 #include <framework/MathUtility.hpp>
 #include "player/PlayerSpaceship.hpp"
+#include "weapon/BulletShooter.hpp"
 
 namespace ss {
     PlayerSpaceship::PlayerSpaceship(World* mOwningWorld, const std::string& path)
         : Spaceship{mOwningWorld, path},
         mMoveInput{},
-        mSpeed{200.f} {
+        mSpeed{200.f},
+        mShooter{new BulletShooter{this, 0.1f} } {
 
     }
 
@@ -14,6 +16,12 @@ namespace ss {
         Spaceship::Tick(dt);
         HandleInput();
         ConsumeInput(dt);
+    }
+
+    void PlayerSpaceship::Shoot() {
+        if (mShooter) {
+            mShooter->Shoot();
+        }
     }
 
     void PlayerSpaceship::HandleInput() {
@@ -29,6 +37,9 @@ namespace ss {
         }
         ClampInputOnEdge();
         NormalizeInput();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+            Shoot();
+        }
     }
 
     void PlayerSpaceship::NormalizeInput() {

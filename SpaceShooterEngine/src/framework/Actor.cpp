@@ -85,6 +85,10 @@ namespace ss {
         return RotationToVector(GetActorRotation() + 90.f);
     }
 
+    sf::Vector2f Actor::GetActorLeftDirection() const {
+        return RotationToVector(GetActorRotation() - 90.f);
+    }
+
     sf::Vector2u Actor::GetWindowSize() const {
         return mOwningWorld->GetWindowSize();
     }

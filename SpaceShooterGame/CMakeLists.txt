@@ -9,6 +9,15 @@ add_executable(
 
     ${CMAKE_CURRENT_SOURCE_DIR}/include/spaceship/Spaceship.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/spaceship/Spaceship.cpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/weapon/Bullet.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/weapon/Bullet.cpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/weapon/BulletShooter.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/weapon/BulletShooter.cpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/weapon/Shooter.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/weapon/Shooter.cpp
 )
 
 target_include_directories(${SPACE_SHOOTER_GAME_TARGET_NAME} PUBLIC 

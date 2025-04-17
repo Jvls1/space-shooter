@@ -15,4 +15,8 @@ namespace ss {
     void Spaceship::SetVelocity(const sf::Vector2f& newVel) {
         mVelocity = newVel; 
     }
+
+    void Spaceship::Shoot() {
+
+    }
 }
