@@ -1,8 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
 #include "framework/Core.hpp"
 #include "framework/Object.hpp"
+
+class b2Body;
 
 namespace ss {
     class World;
@@ -32,12 +33,23 @@ namespace ss {
         World* GetWorld() const { return mOwningWorld; }
 
         bool IsActorOutOfWindowBounds() const;
+        void SetEnablePhysics(bool enable);
+        virtual void OnActorBeginOverlap(Actor* other);
+        virtual void OnActorEndOverlap(Actor* other);
+        virtual void Destroy() override;
     private:
         void CenterPivot();
+        void InitializePhysics();
+        void DisablePhysics();
+        void UpdatePhysicsBodyTransform();
+
         World* mOwningWorld;
         bool mHasBeganPlay;
 
         sf::Sprite mSprite;
         shared<sf::Texture> mTexture;
+
+        b2Body* mPhysicBody;
+        bool mPhysicsEnabled;
     };
 }

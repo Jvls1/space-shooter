@@ -1,6 +1,7 @@
 #include "framework/Application.hpp"
 #include "framework/AssetManager.hpp"
 #include "framework/Core.hpp" 
+#include "framework/PhysicsSystem.hpp"
 #include "framework/World.hpp"
 
 namespace ss
@@ -45,6 +46,8 @@ namespace ss
         if (currentWorld) {
             currentWorld->TickInternal(dt);
         }
+
+        PhysicsSystem::Get().Step(dt);
         
         if (mCleanCycleClock.getElapsedTime().asSeconds() >= mCleanCycleInterval) {
             mCleanCycleClock.restart();

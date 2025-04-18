@@ -3,6 +3,7 @@
 #include <memory>
 #include <map>
 #include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 namespace ss {
@@ -23,6 +24,9 @@ namespace ss {
 
     template<typename K, typename V, typename H = std::hash<K>>
     using Dictionary = std::unordered_map<K, V, H>;
+
+    template<typename T>
+    using Set = std::unordered_set<T>;
 
     #define LOG(M, ...) printf(M "\n", ##__VA_ARGS__)
 }

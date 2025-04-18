@@ -1,6 +1,8 @@
+#include <box2d/b2_body.h>
 #include "framework/Actor.hpp"
 #include "framework/AssetManager.hpp"
 #include "framework/MathUtility.hpp"
+#include "framework/PhysicsSystem.hpp"
 #include "framework/World.hpp"
 
 namespace ss {
@@ -8,7 +10,9 @@ namespace ss {
         : mOwningWorld(owningWorld),
         mHasBeganPlay(false),
         mTexture{},
-        mSprite{} {
+        mSprite{},
+        mPhysicBody{nullptr},
+        mPhysicsEnabled{false} {
         SetTexture(texturePath);
     }
     Actor::~Actor() {
@@ -128,5 +132,50 @@ namespace ss {
         }
 
         return false;
+    }
+    
+    void Actor::InitializePhysics() {
+        if (!mPhysicBody) {
+            mPhysicBody = PhysicsSystem::Get().AddListener(this);
+        }
+    }
+
+    void Actor::DisablePhysics() {
+        if (mPhysicBody) {
+            PhysicsSystem::Get().RemoveListener(mPhysicBody);
+            mPhysicBody = nullptr;
+        }
+    }
+
+    void Actor::UpdatePhysicsBodyTransform() {
+        if (mPhysicBody) {
+            float physicsScale = PhysicsSystem::Get().GetPhysicsScale();
+            b2Vec2 pos{GetActorLocation().x * physicsScale, GetActorLocation().y * physicsScale};
+            float rotation = DegreesToRadians(GetActorRotation());
+
+            mPhysicBody->SetTransform(pos, rotation);
+        }
+    }
+
+    void Actor::SetEnablePhysics(bool enable) {
+        mPhysicsEnabled = enable;
+        if (mPhysicsEnabled) {
+            InitializePhysics();
+        } else {
+            DisablePhysics();
+        }
+    }
+
+    void Actor::OnActorBeginOverlap(Actor* other) {
+
+    }
+
+    void Actor::OnActorEndOverlap(Actor* other) {
+
+    }
+
+    void Actor::Destroy() {
+        DisablePhysics();
+        Object::Destroy();
     }
 }

@@ -28,4 +28,9 @@ namespace ss {
         SetActorRotation(0.f);
         AddActorLocationOffset(GetActorLeftDirection() * mSpeed * dt);
     }
+
+    void Bullet::BeginPlay() {
+        Actor::BeginPlay();
+        SetEnablePhysics(true);
+    }
 }

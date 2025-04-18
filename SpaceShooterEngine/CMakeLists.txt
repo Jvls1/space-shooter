@@ -19,6 +19,9 @@ add_library(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Object.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Object.cpp
 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/PhysicsSystem.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/PhysicsSystem.cpp
+
     ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/World.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/World.cpp
 

@@ -6,7 +6,7 @@ namespace ss {
         Object();
         virtual ~Object();
 
-        void Destroy();
+        virtual void Destroy();
         bool IsPendingDestroy() const {
             return mIsPendingDestroy;
         }

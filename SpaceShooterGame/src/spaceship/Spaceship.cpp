@@ -19,4 +19,10 @@ namespace ss {
     void Spaceship::Shoot() {
 
     }
+
+    void Spaceship::BeginPlay() {
+        Actor::BeginPlay();
+
+        SetEnablePhysics(true);
+    }
 }
