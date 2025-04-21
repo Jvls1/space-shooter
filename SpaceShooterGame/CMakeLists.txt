@@ -4,6 +4,9 @@ add_executable(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/gameFramework/GameApplication.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/gameFramework/GameApplication.cpp
 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/gameplay/HealthComponent.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gameplay/HealthComponent.cpp
+
     ${CMAKE_CURRENT_SOURCE_DIR}/include/player/PlayerSpaceship.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/player/PlayerSpaceship.cpp
 

@@ -3,7 +3,8 @@
 namespace ss {
     Spaceship::Spaceship(World* owningWord, const std::string& texturePath) 
         : Actor{owningWord, texturePath},
-        mVelocity{} {
+        mVelocity{},
+        mHealthComp{100.f, 100.f} {
 
     }
 

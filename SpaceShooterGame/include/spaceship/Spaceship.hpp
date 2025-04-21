@@ -1,5 +1,6 @@
 #pragma once
 #include <framework/Actor.hpp>
+#include "gameplay/HealthComponent.hpp"
 
 namespace ss {
     class Spaceship : public Actor {
@@ -12,5 +13,6 @@ namespace ss {
         virtual void BeginPlay() override;
     private:
         sf::Vector2f mVelocity;
+        HealthComponent mHealthComp;
     };
 }
