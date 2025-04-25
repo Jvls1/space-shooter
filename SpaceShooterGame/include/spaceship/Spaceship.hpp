@@ -11,8 +11,11 @@ namespace ss {
         void SetVelocity(const sf::Vector2f& newVel);
         virtual void Shoot();
         virtual void BeginPlay() override;
+        virtual void ApplyDamage(float amt) override;
     private:
-        void OnHealthChanged(float amt, float health, float maxHealth);
+        virtual void OnHealthChanged(float amt, float health, float maxHealth);
+        virtual void OnTakenDamage(float amt, float health, float maxHealth);
+        virtual void Blow();
         sf::Vector2f mVelocity;
         HealthComponent mHealthComp;
     };

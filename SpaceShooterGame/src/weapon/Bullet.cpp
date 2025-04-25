@@ -6,6 +6,7 @@ namespace ss {
         mOwner{owner},
         mSpeed{speed},
         mDamage{damage} {
+        SetTeamID(owner->GetTeamID());
     }
 
     void Bullet::SetSpeed(float newSpeed) {
@@ -32,5 +33,12 @@ namespace ss {
     void Bullet::BeginPlay() {
         Actor::BeginPlay();
         SetEnablePhysics(true);
+    }
+
+    void Bullet::OnActorBeginOverlap(Actor* other) {
+        if (IsOtherHostile(other)) {
+            other->ApplyDamage(GetDamage());
+            Destroy();
+        }
     }
 }

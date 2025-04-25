@@ -25,9 +25,22 @@ namespace ss {
         Actor::BeginPlay();
         SetEnablePhysics(true);
         mHealthComp.onHealthChanged.BindAction(GetWeakRef(), &Spaceship::OnHealthChanged);
+        mHealthComp.onTakenDamage.BindAction(GetWeakRef(), &Spaceship::OnTakenDamage);
+        mHealthComp.onHealthEmpty.BindAction(GetWeakRef(), &Spaceship::Blow);
+    }
+
+    void Spaceship::ApplyDamage(float amt) {
+        mHealthComp.ChangeHealth(-amt);
     }
 
     void Spaceship::OnHealthChanged(float amt, float health, float maxHealth) {
-        LOG("heath changed");
+    }
+
+    void Spaceship::OnTakenDamage(float amt, float health, float maxHealth) {
+
+    }
+
+    void Spaceship::Blow() {
+        Destroy();
     }
 }

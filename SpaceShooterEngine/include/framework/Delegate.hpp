@@ -1,6 +1,6 @@
 #pragma once
 #include <functional>
-#include "framework/Object.hpp"
+#include "framework/Core.hpp"
 
 namespace ss {
     class Object;

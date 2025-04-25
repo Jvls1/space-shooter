@@ -13,7 +13,7 @@ namespace ss {
         bool IsPendingDestroy() const { return mIsPendingDestroy; }
         weak<Object> GetWeakRef();
         weak<const Object> GetWeakRef() const;
-        Delegate<Object*> OnDestroy;  
+        Delegate<Object*> onDestroy;
     private: 
         bool mIsPendingDestroy;
     };

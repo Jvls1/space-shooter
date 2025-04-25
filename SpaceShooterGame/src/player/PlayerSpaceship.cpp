@@ -9,7 +9,7 @@ namespace ss {
         mMoveInput{},
         mSpeed{200.f},
         mShooter{new BulletShooter{this, 0.1f} } {
-
+        SetTeamID(1);
     }
 
     void PlayerSpaceship::Tick(float dt) {

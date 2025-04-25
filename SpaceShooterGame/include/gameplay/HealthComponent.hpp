@@ -10,6 +10,8 @@ namespace ss {
         float GetMaxHealth() const { return mMaxHealth; }
 
         Delegate<float, float, float> onHealthChanged;
+        Delegate<float, float, float> onTakenDamage;
+        Delegate<> onHealthEmpty;
     private:
         void TakenDamage(float amt);
         void HealthEmpty();

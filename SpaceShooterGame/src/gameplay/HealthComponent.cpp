@@ -26,10 +26,12 @@ namespace ss {
         } else {
             HealthRegen(amt);
         }
+
+        onHealthChanged.Broadcast(amt, mHealth, mMaxHealth);
     }
 
     void HealthComponent::TakenDamage(float amt) {
-
+        onTakenDamage.Broadcast(amt, mHealth, mMaxHealth);
     }
 
     void HealthComponent::HealthRegen(float amt) {
@@ -37,6 +39,6 @@ namespace ss {
     }
     
     void HealthComponent::HealthEmpty() {
-
+        onHealthEmpty.Broadcast();
     }
 }

@@ -12,7 +12,8 @@ namespace ss {
         mTexture{},
         mSprite{},
         mPhysicBody{nullptr},
-        mPhysicsEnabled{false} {
+        mPhysicsEnabled{false},
+        mTeadID{GetNeutralTeamID()} {
         SetTexture(texturePath);
     }
     Actor::~Actor() {
@@ -177,5 +178,17 @@ namespace ss {
     void Actor::Destroy() {
         DisablePhysics();
         Object::Destroy();
+    }
+
+    bool Actor::IsOtherHostile(Actor* other) {
+        if (GetTeamID() == GetNeutralTeamID() || other->GetTeamID() == GetNeutralTeamID()) {
+            return false;
+        }
+
+        return GetTeamID() != other->GetTeamID();
+    }
+
+    void Actor::ApplyDamage(float amt) {
+         
     }
 }

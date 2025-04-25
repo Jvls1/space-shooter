@@ -37,6 +37,11 @@ namespace ss {
         virtual void OnActorBeginOverlap(Actor* other);
         virtual void OnActorEndOverlap(Actor* other);
         virtual void Destroy() override;
+        static uint8 GetNeutralTeamID() { return neutralTeamID; }
+        void SetTeamID(uint8 teamID) { mTeadID = teamID; }
+        uint8 GetTeamID() const { return mTeadID; }
+        bool IsOtherHostile(Actor* other);
+        virtual void ApplyDamage(float amt);
     private:
         void CenterPivot();
         void InitializePhysics();
@@ -51,5 +56,9 @@ namespace ss {
 
         b2Body* mPhysicBody;
         bool mPhysicsEnabled;
+
+        uint8 mTeadID;
+
+        const static uint8 neutralTeamID = 255;
     };
 }
